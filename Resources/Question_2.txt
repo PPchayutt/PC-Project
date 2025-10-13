@@ -1,0 +1,41 @@
+***คำถามชุดที่ 2***
+
+1) "Circuit open?",  // วงจรไฟฟ้าคือการต่อไม่ครบรอบ?
+	A. True
+	B. False ✅
+
+2) "Active consume?", // Active Element คือตัวรับพลังงาน?
+	A. True
+	B. False ✅
+
+3) "RAM is CPU?", // RAM คือหน่วยประมวลผล?
+	A. True
+	B. False ✅
+
+4)  "setup() loops?", // void setup() ทำงานตลอดเวลา?
+	A. Trrue
+	B. False ✅
+
+5)  "dRead analog?", // digitalRead() ใช้อ่านค่าอนาล็อก?
+	A. True
+	B. False ✅
+
+6)  "Analog discrete?", // สัญญาณอนาล็อกคือสัญญาณไม่ต่อเนื่อง?
+	A. True
+	B. False ✅
+
+7)  "aWrite is PWM?", // analogWrite() ใช้เขียนค่า PWM?
+	A. True ✅
+	B. False
+
+8)  "I2C has 2 wire?", // I2C Bus ใช้สายสัญญาณ 2 เส้น?
+	A. True ✅
+	B. False
+
+9) "Battery = Resist?", // แบตเตอรี่คือตัวต้านทาน?
+	A. True
+	B. False ✅
+
+10)  "MCU is computer?", // ไมโครคอนโทรลเลอร์คือคอมพิวเตอร์ในชิปเดียว?
+	A. True ✅
+	B. False
