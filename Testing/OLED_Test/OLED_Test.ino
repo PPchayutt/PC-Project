@@ -1,27 +1,42 @@
-#include <SPI.h>
+/*
+ * โค้ดทดสอบจอ OLED 2 จอ (0.96" และ 1.3") พร้อมกัน
+ * โดยใช้ Software I2C แยก Pin กัน
+ */
+
+#include <Arduino.h>
+#include <U8g2lib.h>
 #include <Wire.h>
-#include <Adafruit_GFX.h>
-#include <Adafruit_SSD1306.h>
-#define OLED_RESET 4
-Adafruit_SSD1306 display(OLED_RESET);
-void setup() {
-  display.begin(SSD1306_SWITCHCAPVCC, 0x3c);  //สั่งให้จอ OLED เริ่มทำงานที่ Address 0x3C
-  display.clearDisplay();                     // ลบภาพในหน้าจอทั้งหมด
-  display.drawPixel(127, 63, WHITE);
-  display.drawLine(0, 63, 127, 21, WHITE);
-  display.drawCircle(110, 50, 12, WHITE);
-  display.fillCircle(45, 50, 8, WHITE);
-  display.drawTriangle(70, 60, 90, 60, 80, 46, WHITE);
-  display.setTextSize(1);  // กำหนดขนาดตัวอักษร
-  display.setTextColor(WHITE);
-  display.setCursor(0, 0);  // กำหนดตำแหน่ง x,y ที่จะแสดงผล
-  display.println(" OLED 0.96 TESTER ");
-  display.setTextSize(1);
-  display.println("Worachot");
-  display.setTextColor(BLACK, WHITE);  //กำหนดข้อความสีขาว ฉากหลังสีดำ
-  display.setTextSize(2);
-  display.println("IS GAY");  // แสดงผลข้อความ www.Myarduino.net
-  display.display();
+
+// --- ตั้งค่าจอที่ 1 (จอเล็ก 0.96 นิ้ว) ---
+// ต่อ SCL ที่ขา 5, ต่อ SDA ที่ขา 6
+U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2_small(U8G2_R0, /* scl=*/ 5, /* sda=*/ 6, /* reset=*/ U8X8_PIN_NONE);
+
+// --- ตั้งค่าจอที่ 2 (จอใหญ่ 1.3 นิ้ว) ---
+// ต่อ SCL ที่ขา 7, ต่อ SDA ที่ขา 8
+U8G2_SH1106_128X64_NONAME_F_SW_I2C u8g2_large(U8G2_R0, /* scl=*/ 7, /* sda=*/ 8, /* reset=*/ U8X8_PIN_NONE);
+
+
+void setup(void) {
+  // เริ่มการทำงานของจอทั้งสอง
+  u8g2_small.begin();
+  u8g2_large.begin();
 }
-void loop() {
+
+void loop(void) {
+  // --- 1. วาดบนจอเล็ก ---
+  u8g2_small.clearBuffer(); // ล้างจอเล็ก
+  u8g2_small.setFont(u8g2_font_helvB10_t_thai); // เลือกฟอนต์ไทย
+  u8g2_small.setCursor(0, 20); // ตั้งตำแหน่ง
+  u8g2_small.print("จอเล็ก 0.96 นิ้ว");
+  u8g2_small.sendBuffer(); // ส่งภาพไปแสดงที่จอเล็ก
+
+  // --- 2. วาดบนจอใหญ่ ---
+  u8g2_large.clearBuffer(); // ล้างจอใหญ่
+  u8g2_large.setFont(u8g2_font_helvB10_t_thai); // เลือกฟอนต์ไทย
+  u8g2_large.setCursor(0, 20); // ตั้งตำแหน่ง
+  u8g2_large.print("จอใหญ่ 1.3 นิ้ว");
+  u8g2_large.sendBuffer(); // ส่งภาพไปแสดงที่จอใหญ่
+
+  // หน่วงเวลา 2 วินาที ก่อนจะวาดใหม่ในรอบถัดไป
+  delay(2000);
 }
