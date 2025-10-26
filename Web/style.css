@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    min-height: 300vh;
+    background-image:  linear-gradient(rgba(0, 0, 0 ,0.3)), url(https://i.pinimg.com/736x/ec/bf/f4/ecbff40253ba27319612fbd713b0c302.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #333;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 4%;
+    font-size: 1.62rem;
+}
+
+/* 🔹 Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  );
+  transition: background 0.2s linear;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #c7c6c6;
+}
+
+.content {
+  margin-top: 120px;
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+footer {
+    text-align: center;
+}
