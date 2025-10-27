@@ -43,10 +43,10 @@ void setup(void) {
 
 void loop(void) {
   // --- 1. วาดบนจอใหญ่ (แสดงคำถามภาษาไทย ด้วย dw_font) ---
-  u8g2_large.clearBuffer();                    // **สำคัญ:** ล้าง Buffer ของ U8g2 ก่อนเสมอ
-  dw_font_goto(&myfont_large, 0, 40);          // ตั้งตำแหน่ง dw_font (ปรับ Y ตามต้องการ)
-  dw_font_print(&myfont_large, "วงจรเปิดคือ?");  // พิมพ์ภาษาไทยด้วย dw_font
-  u8g2_large.sendBuffer();                     // **สำคัญ:** ส่ง Buffer ของ U8g2 ไปแสดงผล
+  u8g2_large.clearBuffer();                 // **สำคัญ:** ล้าง Buffer ของ U8g2 ก่อนเสมอ
+  dw_font_goto(&myfont_large, 0, 40);       // ตั้งตำแหน่ง dw_font (ปรับ Y ตามต้องการ)
+  dw_font_print(&myfont_large, "ข้อที่ 1: ");  // พิมพ์ภาษาไทยด้วย dw_font
+  u8g2_large.sendBuffer();                  // **สำคัญ:** ส่ง Buffer ของ U8g2 ไปแสดงผล
 
   // --- 2. วาดบนจอเล็ก (แสดงตัวเลือกภาษาอังกฤษ ด้วย U8g2) ---
   u8g2_small.clearBuffer();
