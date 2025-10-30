@@ -23,7 +23,7 @@ U8G2_SSD1306_128X64_NONAME_F_SW_I2C u8g2_small(U8G2_R0, /* scl=*/5, /* sda=*/6, 
 U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2_large(U8G2_R0, /* reset=*/U8X8_PIN_NONE, /* address=*/0x78);
 
 // ---------- dw_font Setup ----------
-extern dw_font_info_t font_th_sarabunpsk_regular18;  // เลือกขนาดฟอนต์ 16-18-20
+extern dw_font_info_t font_th_sarabunpsk_regular20;  // เลือกขนาดฟอนต์ 16-18-20
 dw_font_t myfont_large;
 const uint8_t *eng_font = u8g2_font_helvB12_tr;  // ฟอนต์อังกฤษสำหรับจอเล็ก
 
@@ -168,11 +168,11 @@ void drawScreens() {
   if (state == WRONG_LOCK) {
     u8g2_small.setCursor(0, 10);  // แสดงข้อความตัวเล็กๆ ด้านบน
     u8g2_small.setFont(u8g2_font_6x10_tf);
-    u8g2_small.print("WRONG! Try again.");
+    u8g2_small.print("WRONG! :(");
   } else if (state == RIGHT_FEEDBACK) {
     u8g2_small.setCursor(0, 10);
     u8g2_small.setFont(u8g2_font_6x10_tf);
-    u8g2_small.print("CORRECT!");
+    u8g2_small.print("CORRECT! :)");
   }
   u8g2_small.sendBuffer();
 }
@@ -202,7 +202,7 @@ void setup() {
 
   // dw_font
   dw_font_init(&myfont_large, 128, 64, draw_pixel_large_u8g2, clear_pixel_large_u8g2);
-  dw_font_setfont(&myfont_large, &font_th_sarabunpsk_regular18);
+  dw_font_setfont(&myfont_large, &font_th_sarabunpsk_regular20);
 
   // Shuffle questions
   randomSeed(analogRead(A0));
