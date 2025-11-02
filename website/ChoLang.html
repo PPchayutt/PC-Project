@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Language</title>
+</head>
+<body>
+  <div class="lang-container" id="langBox">
+    <h2>Choose Language</h2>
+    <div class="lang-options">
+      <div class="lang-card" onclick="setLang('th')">
+        <img src="https://flagcdn.com/w80/th.png" alt="Thai Flag">
+        <p>ภาษาไทย</p>
+      </div>
+      <div class="lang-card" onclick="setLang('en')">
+        <img src="https://flagcdn.com/w80/gb.png" alt="English Flag" style="height: 52px;">
+        <p>English</p>
+      </div>
+      <div class="lang-card" onclick="setLang('jp')">
+        <img src="https://flagcdn.com/w80/jp.png" alt="Japan Flag">
+        <p>日本語</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      const box = document.getElementById('langBox');
+      box.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href =lang + "index.html";
+      }, 350);
+    }
+  </script>
+</body>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #f7f3ed;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    animation: fadeInBg 1s ease-in-out;
+  }
+
+  .lang-container {
+    background-color: #f3f3f3;
+    padding: 40px 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    animation: fadeInUp 0.7s ease-out;
+  }
+
+  .lang-container h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #442e1a;
+    letter-spacing: 1px;
+  }
+
+  .lang-options {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .lang-card {
+    width: 100px;
+    padding: 10px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInCard 0.5s forwards;
+  }
+
+  .lang-card:nth-child(1) { animation-delay: 0.3s; }
+  .lang-card:nth-child(2) { animation-delay: 0.5s; }
+  .lang-card:nth-child(3) { animation-delay: 0.7s; }
+
+  .lang-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    background-color: #f7f3ed;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  }
+
+  .lang-card img {
+    width: 80px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  .lang-card p {
+    font-weight: bold;
+    color: #442e1a;
+    margin: 0;
+  }
+
+  /* ✨ Animations */
+  @keyframes fadeInBg {
+    from { background-color: #eee; opacity: 0; }
+    to { background-color: #f7f3ed; opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInCard {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeOutAll {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.98); }
+  }
+
+  .fade-out {
+    animation: fadeOutAll 0.5s ease forwards;
+  }
+</style>
+</html>
