@@ -6,8 +6,7 @@
 โปรเจคนี้จะแก้ปัญหาการไม่เข้าใจในบทเรียน เนื่องจากหากไม่เข้าใจอาจทำให้เกิดคะแนนที่ไม่ดีในตอนสอบได้ โดยคนที่ได้ประโยชน์จะเป็นนักศึกษาที่เล่นกับโปรเจคนี้ ซึ่งจะมีการกระตุ้นให้ตื่นตัวอยู่เสมอ และได้รับ Feedback ทันทีว่าตอบถูกหรือผิด ซึ่งช่วยให้จดจำเนื้อหาได้ดียิ่งขึ้น
 
 ## Library ที่ใช้ในโปรเจค
-- Adafruit_GFX_Library (https://github.com/adafruit/Adafruit-GFX-Library)
-- Adafruit_SSD1306 (https://github.com/adafruit/Adafruit_SSD1306)
+- Wire
 - U8g2 (https://github.com/olikraus/u8g2)
 - dw_utf8_gfont_library (https://github.com/deaware/dw_utf8_gfont_library)
 
